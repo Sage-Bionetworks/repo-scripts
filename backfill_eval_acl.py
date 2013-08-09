@@ -190,6 +190,8 @@ for eval_id in eval_list:
     print ''
     print 'Begin backfilling ', eval_id
     ev = get_eval(session, eval_id)
+    if ev is None:
+        continue
     owner_id = int(ev['ownerId'])
     public_id = get_user_group(session, 'PUBLIC')
     auth_id = get_user_group(session, 'AUTHENTICATED')
